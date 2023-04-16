@@ -1,0 +1,36 @@
+repo:
+  - '*'
+
+readme:
+  - 'README.md'
+
+source:
+  - 'src'
+
+main:
+  - 'src/**/main.*'
+
+cpu:
+  - 'src/**/cpu.*'
+
+video:
+  - 'src/**/ppu.*'
+
+audio:
+  - 'src/**/spu.*'
+
+memory:
+  - 'src/**/mmu.*'
+
+controller:
+  - 'src/**/inputs.*'
+
+binary_lib:
+  - 'src/**/binary_lib.rs'
+
+sdl2:
+  - 'src/**/my_sdl2.*'
+  - 'src/**/my_sdl2/*.rs'
+
+cargo:
+  - 'Cargo.toml'
