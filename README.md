@@ -17,6 +17,7 @@ This emulator passed all the tests of the Intel 8080 CPU. You can find the tests
 - [x] TST8080.COM
 - [x] 8080PRE.COM
 - [x] CPUTEST.COM
+- [x] 8080EXER.COM
 - [x] 8080EXM.COM
 
 You can find some screenshots and video gameplay of the Space Invaders emulator below.
@@ -108,6 +109,7 @@ Currently, the CPU is passing the following tests:
 - [x] TST8080.COM
 - [x] 8080PRE.COM
 - [x] CPUTEST.COM
+- [x] 8080EXER.COM
 - [x] 8080EXM.COM
 
 The tests are named:
@@ -116,6 +118,7 @@ The tests are named:
 - cpu_test_rom_tst8080
 - cpu_test_rom_8080pre
 - cpu_test_rom_cputest
+- cpu_test_rom_8080exer
 - cpu_test_rom_8080exm
 
 You can start them individuality by typing:
