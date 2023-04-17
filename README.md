@@ -8,9 +8,12 @@
 
 Here is a simple Intel 8080 CPU emulator written in Rust.
 
-I used this processor for my Space Invaders project. You can find it [here](https://github.com/Im-Rises/space_invaders_arcade_emulator).
+I used this processor for my Space Invaders project. You can find
+it [here](https://github.com/Im-Rises/space_invaders_arcade_emulator).
 
 This emulator passed all the tests of the Intel 8080 CPU. You can find the tests roms in the `test_roms` folder.
+
+You can find some screenshots and video gameplay of the Space Invaders emulator below.
 
 ## Images
 
@@ -26,9 +29,49 @@ This emulator passed all the tests of the Intel 8080 CPU. You can find the tests
 
 https://user-images.githubusercontent.com/59691442/183045566-0a3df947-06e7-4c46-9fc6-9d2b8f7d9a46.mp4
 
-## How to use it
+## Quick start
 
-PLACEHOLDER
+### Architecture 
+
+The CPU is composed of 5 files:
+- `cpu.rs`: The main file of the CPU. It contains the CPU structure to fetch, decode and execute the opcodes.
+- `register.rs`: The file that contains a model of the CPU register for an easy-to-use API.
+- `opcode.rs`: The file that contains all the opcodes' implementation.
+- `interrupt.rs`: The file that contains the interrupt implementation.
+- `cpu_disassembly.rs`: The file that contains the disassembly of the CPU, it is a big array that make a mapping between the opcode and the instruction name operation (ex: 0x00 -> NOP).
+
+### How to use
+
+The opcode table is fully assembled, except for the input and output instructions, which vary depending on the specific device that utilizes the CPU. Therefore, it will be necessary to implement these instructions on your own for your project.
+
+In my own Space Invaders project, I first determine whether a given instruction is an input or output command. If it is not, then I proceed to execute the opcode using the CPU. For a more detailed explanation, you can refer to the Space Invaders Emulator project on GitHub [here](https://github.com/Im-Rises/space_invaders_arcade_emulator).
+
+You will also need to check the `halted` flag of the CPU. If it is set to true, then the CPU is waiting for an interrupt to be triggered. If it is set to false, then the CPU is ready to execute the next instruction.
+
+```rust
+// Handle CPU
+while sdl2_video.get_window_active(self) {
+    if !self.cpu.get_halted() {
+        if self.cpu.get_cycles() == 0 {
+            let opcode = self.cpu.fetch_opcode();
+            if opcode == 0xDB {
+                let port = self.cpu.fetch_byte();
+                let a = self.inputs(port, self.cpu.get_a());
+                self.cpu.set_a(a);
+                self.cpu.set_cycles(10);
+            } else if opcode == 0xd3 {
+                let port = self.cpu.fetch_byte();
+                self.outputs(port, self.cpu.get_a(), &mut sdl2_video);
+                self.cpu.set_cycles(10);
+            } else {
+                let cycles = self.cpu.compute_opcode(opcode);
+                self.cpu.set_cycles(cycles);
+            }
+        }
+        self.cpu.set_cycles(self.cpu.get_cycles() - 1);
+    }
+    frequency_counter += 1;
+```
 
 ## Rust tests
 
