@@ -365,11 +365,11 @@ impl Cpu {
 
 #[cfg(test)]
 pub mod tests {
-    use std::fs::File;
-    use std::io::Write;
     use crate::cpu::cpu_disassembly::DISASSEMBLY_TABLE;
     use crate::cpu::Cpu;
     use crate::mmu::Mmu;
+    use std::fs::File;
+    use std::io::Write;
 
     use super::*;
 
