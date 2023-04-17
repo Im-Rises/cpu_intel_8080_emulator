@@ -142,7 +142,13 @@ or
 cargo test cpu_test_rom_tst8080 --release
 ```
 
-You can also debug the processes by uncommenting the two following lines in the `cpu.rs` file in the `test`
+To show the CPU test logs, you can use the `--show-output` flag.
+
+```bash
+cargo test --release -- --show-output
+```
+
+You can also debug disassembly by uncommenting the two following lines in the `cpu.rs` file in the `test`
 module.
 
 ~~~
