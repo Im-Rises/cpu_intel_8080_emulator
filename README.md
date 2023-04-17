@@ -73,6 +73,11 @@ while sdl2_video.get_window_active(self) {
     frequency_counter += 1;
 ```
 
+In all the cases, you will need a working MMU. The project is provided with a simple MMU that can be used for testing purposes. You can find it in the `mmu.rs` file.
+
+To test the good behaviour of the CPU, a set of CPU tests have been used, they show examples of the use of the CPU and the MMU. You can find them in the `cpu.rs` file.
+Mode details about the tests can be found in the `Run tests` section below.
+
 ## Rust tests
 
 You can test the good behaviour of the project by typing the commands onf of the following command. It will start the
@@ -85,13 +90,11 @@ It will start a test rom for the Intel 8080 CPU. You can find it in the link bel
 cargo test
 ```
 
-<!--
-If you want some debug infos about the cpu type:
+or 
 
 ```bash
-cargo test -- --show-output
+cargo test --release
 ```
--->
 
 Currently, the CPU is passing the following tests:
 
@@ -118,7 +121,7 @@ cargo test <test_name>
 or
 
 ```bash
-cargo test --release
+cargo test <test_name> --release
 ```
 
 Example: If you want to start the cpu_test_rom_tst8080 test.
@@ -133,7 +136,7 @@ or
 cargo test cpu_test_rom_tst8080 --release
 ```
 
-You can also debug the processes by uncommenting the two lines following lines in the `cpu.rs` file in the `test`
+You can also debug the processes by uncommenting the two following lines in the `cpu.rs` file in the `test`
 module.
 
 ~~~
@@ -143,6 +146,8 @@ module.
 ~~~
 // write_debug_to_file(&mut cpu_debug, &mut f, cycles_counter);
 ~~~
+
+This will output the complete disassembly of the CPU in the `test_roms/my_output.log` file.
 
 > **Note**  
 > Depending on the test the output is different. Refer to this project for more explanation about how they work.  
