@@ -6,12 +6,18 @@
 
 ## Description
 
-Here is a simple Intel 8080 CPU emulator written in Rust.
+Here is a Cycle-accurate Intel 8080 CPU emulator written in Rust.
 
 I used this processor for my Space Invaders project. You can find
 it [here](https://github.com/Im-Rises/space_invaders_arcade_emulator).
 
 This emulator passed all the tests of the Intel 8080 CPU. You can find the tests roms in the `test_roms` folder.
+
+- [x] cpudiag.bin
+- [x] TST8080.COM
+- [x] 8080PRE.COM
+- [x] CPUTEST.COM
+- [x] 8080EXM.COM
 
 You can find some screenshots and video gameplay of the Space Invaders emulator below.
 
