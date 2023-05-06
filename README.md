@@ -11,7 +11,7 @@ Here is a Cycle-accurate Intel 8080 CPU emulator written in Rust.
 I used this processor for my Space Invaders project. You can find
 it 🚀🚀[here](https://github.com/Im-Rises/space_invaders_arcade_emulator)🚀🚀.
 
-And also the web version 🚀🚀[here](https://im-rises.github.io/space-invaders-arcade-emulator/)🚀🚀.
+And also the web version 🚀🚀[here](https://im-rises.github.io/space-invaders-arcade-emulator-website/)🚀🚀.
 
 This emulator passed all the tests of the Intel 8080 CPU. You can find the tests roms in the `test_roms` folder.
 
@@ -232,4 +232,4 @@ Quentin MOREL :
 - @Im-Rises
 - <https://github.com/Im-Rises>
 
-[![GitHub contributors](https://contrib.rocks/image?repo=Im-Rises/GameBoyEmulator)](https://github.com/Im-Rises/GameBoyEmulator/graphs/contributors)
+[![GitHub contributors](https://contrib.rocks/image?repo=Im-Rises/cpu_intel_8080_emulator)](https://github.com/Im-Rises/cpu_intel_8080_emulator/graphs/contributors)
